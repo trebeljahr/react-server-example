@@ -7,6 +7,7 @@ import { fileURLToPath } from "url";
 import { connectToMongoose } from "./db.js";
 import router from "./routes.js";
 import session from "express-session";
+import helmet from "helmet";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
