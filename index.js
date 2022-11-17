@@ -17,8 +17,6 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:3000";
 
-app.use(helmet({ crossOriginEmbedderPolicy: false }));
-
 app.use(
   session({
     secret: process.env.SESS_SECRET,
@@ -32,6 +30,10 @@ app.use(
     },
   })
 );
+
+app.use(helmet({ crossOriginEmbedderPolicy: false }));
+
+console.log(CLIENT_ORIGIN);
 app.use(cors({ origin: CLIENT_ORIGIN, credentials: true }));
 
 app.use(fileUpload({ createParentPath: true }));
